@@ -2,6 +2,21 @@
 #include <vector>
 #include "insertion_sort.h"
 
+
+/*------------------------------------------------------------------------------------
+ * Function: insertion_sort
+ * Description:
+ *
+ * Input: Reference to the vector to be sorted (int)
+ * Output: None (void)
+ * Process: For the value at each index in the vector, the value before it is
+ *          compared to the current value. If this value is less than the current
+ *          value, the values are swapped. The index being compared is decreased
+ *          and is compared to current index's value again. Process is repeated until
+ *          comparing index reaches beginning of the list or until current value
+ *          is less than comparing value. Current index then increases by 1.
+ ------------------------------------------------------------------------------------*/
+
 void insertion_sort(std::vector<int>& items){
     const int size = items.size();
     for(auto curr_idx = 1; curr_idx < size; curr_idx++){
