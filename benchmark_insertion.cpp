@@ -1,8 +1,7 @@
-#import <iostream>
-#import <vector>
+#include <iostream>
+#include <vector>
+#include <chrono>
 #include "insertion_sort.h"
-#include "merge_sort.h"
-#include "quick_sort.h"
 
 template <void (*sorting_func)(std::vector<int>&)>
 void benchmark_sorted(const int num_elements){
@@ -77,5 +76,6 @@ void benchmark_all(int num_elements) {
 }
 
 int main(){
+    std::cout << "Insertion Sort:\n";
     benchmark_all<insertion_sort>(10000);
 }
