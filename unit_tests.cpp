@@ -2,6 +2,8 @@
 #include <vector>
 #include <cassert>
 #include "insertion_sort.h"
+#include "merge_sort.h"
+#include "quick_sort.h"
 
 template <void (*sorting_func)(std::vector<int>&)>
 void test_sort_one_element() {
