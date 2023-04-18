@@ -1,12 +1,13 @@
-#ifndef DSA_FINAL_PROJECT_QUICK_SORT_H
-#define DSA_FINAL_PROJECT_QUICK_SORT_H
+#ifndef QUICK_SORT_ALGORITHM_H
+#define QUICK_SORT_ALGORITHM_H
 
-#include <iostream>
 #include <vector>
+#include <iostream>
+#include <iomanip>
 
-int swap_function(std::vector<int>& vec, int startPos, int endPos);
+int list_partition(std::vector<int>& num_list, int start_position, int end_position);
 
-void quick_sort(std::vector<int>& vec,  int startPos, int endPos);
+void quick_sort_algorithm(std::vector<int>& num_list, int start_position, int end_position);
 
 void quick_sort_wrap(std::vector<int>& items);
 

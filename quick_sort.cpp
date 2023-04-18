@@ -1,116 +1,93 @@
-#include "quick_sort.h"
-
-#include <iostream>
 #include <vector>
-
+#include <iostream>
+#include <iomanip>
 
 /*------------------------------------------------------------------------------------
- * Function: swap_function
+ * Function: list_partition
  *
- * Description: The swap_function's scope is to find when a number in the vector that 
- *              is less than and greater than the pivoting index in the vector.
+ * Description:
  *
- * Input: Reference to the vector to be sorted (int), start position (int), 
- *          end position (int)
+ * Input: Reference to the vector to be sorted(int), start position(int), end position(int)
  * 
- * Output: i (int)
+ * Output: return pivotingIndex (int)
  * 
- * Process: In the nested while loops the conditions increment 'i' and decrement 'j' 
- *          when both conditions are met. Once this is true for both conditions, a 
- *          manual swap is preformed for both values and the function will return 'i'. 
- *          This values is the next pivoting index for the continuing swap in the vector 
- *          of numbers. Finally after every swap_function call, the start position and 
- *          end position move after every successful swap.
+ * Process: The 'pivoting_index' is initialized to the start position index at every 
+ *          recursive call from the quick_sort function. Then, the 'current_pivot_value'
+ *          is initialized to the end parameter which determines the elements that will 
+ *          be swapped in 'num_list.' The for loop will be iterating at the starting 
+ *          position to the end position at every recursive call until the list is sorted
+ *          in ascending order. When the condition, if the current element in num_list is 
+ *          less thanthe 'current_pivot_value,' the two elements swap position, and the 
+ *          pivot index increments to the next element. At the end of the for loop, the 
+ *          value at the 'pivoting_index' will be swapped with the end position value in 
+ *          the list showing the sub-array for either the right or left list partition is 
+ *          completed and in ascending order based on the passed parameters. When sorting 
+ *          the sub-arrays, the returning value 'pivoting_index' will continue the sorting 
+ *          process to the next or previous element in 'num_list.'  
  ------------------------------------------------------------------------------------*/
+int list_partition(std::vector<int>& num_list, int start_position, int end_position) 
+{
+    //index moving during every for loop iteration 
+    int pivoting_index = start_position;
 
-int swap_function(std::vector<int> &vec,  int startPos, int endPos){
+    //Current pivot value at every quick_sort_algorithm recursive call
+    int current_pivot_value = num_list[end_position];
 
-    //Getting the pivoting index for the search
-    int pivot = startPos + (endPos - startPos) / 2;
-
-    //Saving the value in the vec at the pivot index
-    int value = vec[pivot];
-
-    //Variable 'i' and 'j' will be holding the starting and ending postions
-    int i = startPos;
-    int j = endPos;
-
-    //Variable 'tempValue' is initalized for helping swapping the two values in
-    //the while loops below 
-    int tempValue;
-
-    //While Loop: 'i' is moving left -> right in vec
-    //            'j' is moving right -> left in vec
-    //
-    //Condition: The while loop with stop when j is greater than i. This represents
-    //           the end position has moved passed the start position. 
-    while ( i <= j)
+    //Iterating through num_list from passed start to end position
+    for (int i = start_position; i < end_position; i++) 
     {
-        //Incrementing 'i' in the while loop until the current element in the vector
-        //is greater than the pivoting index
-        while (vec[i] < value)
-            i++;
-        
-        //Decrementing 'j' in the while loop until the current element in the vector
-        //is less than the value at the pivoting index
-        while (vec[j] > value)
-            j--;
-        
-        //Ensuring a swap is possible based on the two previous while loops
-        if (i <= j)
-        {
-            //Preforming a manual swap
-            tempValue = vec[i];
-            vec[i] = vec[j];
-            vec[j] = tempValue;
+        //If the current element is less than the current pivot
+        if (num_list[i] < current_pivot_value) 
+        {   
+            //swap values
+            std::swap(num_list[i], num_list[pivoting_index]);
 
-            //Moving the start position +1
-            //Moving the end positiotn -1
-            i++;
-            j--;
+            //increment to the next index after swapping
+            pivoting_index++;
         }
     }
-
-    //After loop is completed return 'i', which is the new start position
-    //Thus, making a new pivoting index for each recursive case after every swap
-    return i;
-
-
+    
+    //Once iterative swapping is completed, swap the pivot and the
+    //incrementing pivot index to finsh the sub-array sort
+    std::swap(num_list[pivoting_index], num_list[end_position]);
+    
+    //Returning the pivoting index begin the next portion of sorting
+    return pivoting_index;
 }
 
 /*------------------------------------------------------------------------------------
- * Function: quick_sort
- * Description: The function will recusively swap elements until the start position in 
- *              the vector is greater than the ending position in the vector. Once the 
- *              stoping condition is met, the vector of numbers have been sorted in
- *              ascending order.
+ * Function: quick_sort_algorithm
  *
- * Input: Reference to the vector to be sorted (int), recursive start position (int),
- *        recursive end position (int)
+ * Description:
+ *
+ * Input: Reference to vector of numbers(int), starting position(int), end position(int)
  * 
- * Output: i (int)
+ * Output: None (void)
  * 
- * Process: If the starting position is less then the ending position in the vector, 
- *          then the function will continue to swap numbers. After every swap, a new 
- *          pivoting index is calculated and the next sorting recursive call is
- *          preformed. However, if the condition value is ending position being less 
- *          than the starting position, the recursive call will stop. This signifies
- *          that the entire vector is sorted in ascending order.
+ * Process: The 'quick_sort_algorithm' is a divide-and-conquer algorithm that takes 
+ *          'num_list' and divides the elements into sub-vectors. The purpose of sorting 
+ *          the sub-vectors is to sort the various size of num_list quickly and efficiently. 
+ *          The method takes in 3 parameters which are the references to the elements in 
+ *          'num_list,' the value for the 'start_position,' and the 'end_position' that 
+ *          is the size of the 'num_list.' An if statement is placed to check whether the 
+ *          start and end positions are either the same value or have crossed. This 
+ *          signifies within the recursive sorting algorithm that num_list is sorted 
+ *          in numerically ascending order. However, if the condition is not met, the 
+ *          index variable will hold the index value of the next sub-vectors to be sorted. 
  ------------------------------------------------------------------------------------*/
 
-void quick_sort(std::vector<int> &vec,  int startPos, int endPos){
+void quick_sort_algorithm(std::vector<int>& num_list, int start_position, int end_position) 
+{
+    //Check if num_list is sorted
+    //if the two positions cross or equal, stop sorting
+    if (start_position >= end_position)
+        return;
 
-    if (startPos < endPos)
-    {
-        //Getting pivoting index
-        int pivotingIndex = swap_function(vec, startPos, endPos);
+    int index = list_partition(num_list, start_position, end_position);
 
-        //Preforming recursive calls for swapping elements
-        quick_sort(vec, startPos, pivotingIndex - 1);
-        quick_sort(vec, pivotingIndex, endPos);
-    }
-}
+    //Left partition of list
+    quick_sort_algorithm(num_list, start_position, index - 1);
 
-void quick_sort_wrap(std::vector<int>& items){
-    quick_sort(items, 0, items.size() - 1);
+    //Right partition of list
+    quick_sort_algorithm(num_list, index + 1, end_position);
 }
