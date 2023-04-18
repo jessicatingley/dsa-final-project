@@ -110,3 +110,7 @@ void quick_sort(std::vector<int> &vec,  int startPos, int endPos){
         quick_sort(vec, pivotingIndex, endPos);
     }
 }
+
+void quick_sort_wrap(std::vector<int>& items){
+    quick_sort(items, 0, items.size() - 1);
+}

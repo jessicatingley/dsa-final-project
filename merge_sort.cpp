@@ -60,3 +60,7 @@ void merge_sort(std::vector<int>& vec, int low, int high){
     merge(vec, low, mid, high);
 
 }
+
+void merge_sort_wrap(std::vector<int>& items){
+    merge_sort(items, 0, items.size() - 1);
+}
