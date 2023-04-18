@@ -8,7 +8,20 @@
 
 int num_threads = std::thread::hardware_concurrency();
 
-
+/*------------------------------------------------------------------------------------
+ * Function: separate_vector
+ * Description:
+ *
+ * Input: Reference to the vector to be sorted (vector<int>&)
+ * Output: Vector containing separated pieces of the input vector (2-D vector)
+ * Process: The size of each sub vector is determined by the number of threads on the
+ *          working machine. The size of the original vector is divided by number of
+ *          threads and rounded up or down, resulting in size of sub vectors. The outer
+ *          loop ensures the vector has one less inner vector than the number of threads.
+ *          The inner loop ensures the size of each sub vector matches the determined
+ *          size. The inner loop pushes elements from items to sub vectors of the
+ *          appropriate size.
+ ------------------------------------------------------------------------------------*/
 std::vector<std::vector<int>> separate_vector(std::vector<int>& items){
     int size_sub_vects = std::round((float)items.size() / num_threads);
     std::vector<std::vector<int>> separated_vec;
@@ -22,10 +35,23 @@ std::vector<std::vector<int>> separate_vector(std::vector<int>& items){
         }
         if(!temp_sub_vec.empty()) separated_vec.push_back(temp_sub_vec);
     }
+    // Pushes any remaining numbers to the separated vector
     if(!items.empty()) separated_vec.push_back(items);
     return separated_vec;
 }
 
+/*------------------------------------------------------------------------------------
+ * Function: merge_sorted
+ * Description:
+ *
+ * Input: Reference to the vector which has been sorted (vector<int>&)
+ * Output: Merged vector of sorted elements (vector<int>)
+ * Process: Function loops through each sorted vector in the 2-D vector and compares
+ *          the last element in each one (largest number in each). Once the largest
+ *          out of all of them is found, it is pushed to a new 1-D vector and deleted
+ *          from the original 2-D vector. The new vector is reversed, resulting in a
+ *          sorted vector.
+ ------------------------------------------------------------------------------------*/
 std::vector<int> merge_sorted(std::vector<std::vector<int>>& sorted_vecs){
     auto max = 0;
     int index;
@@ -47,6 +73,17 @@ std::vector<int> merge_sorted(std::vector<std::vector<int>>& sorted_vecs){
     return final_vec;
 }
 
+/*------------------------------------------------------------------------------------
+ * Function: parallel_insertion_sort
+ * Description:
+ *
+ * Input: Reference to the vector to be sorted (vector<int>&)
+ * Output: None (void)
+ * Process: The vector to be sorted is passed into separate_vector to be broken into
+ *          smaller sub vectors. For the number of threads on the running machine,
+ *          a new thread is created and used to run insertion sort on each sub vector.
+ *          Threads are then joined and merged using merge_sorted.
+ ------------------------------------------------------------------------------------*/
 void parallel_insertion_sort(std::vector<int>& items){
     if(items.size() == 0 || items.size() == 1) return;
     std::vector<std::vector<int>> to_sort = separate_vector(items);
