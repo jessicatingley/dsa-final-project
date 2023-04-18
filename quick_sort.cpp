@@ -91,3 +91,7 @@ void quick_sort_algorithm(std::vector<int>& num_list, int start_position, int en
     //Right partition of list
     quick_sort_algorithm(num_list, index + 1, end_position);
 }
+
+void quick_sort(std::vector<int>& items){
+    quick_sort_algorithm(items, 0, items.size() - 1);
+}

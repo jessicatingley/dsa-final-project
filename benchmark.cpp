@@ -4,6 +4,7 @@
 #include "insertion_sort.h"
 #include "merge_sort.h"
 #include "quick_sort.h"
+#include "parallel_insertion_sort.h"
 
 template <void (*sorting_func)(std::vector<int>&)>
 void benchmark_sorted(const int num_elements){
@@ -17,7 +18,7 @@ void benchmark_sorted(const int num_elements){
     sorting_func(test);
     auto finish = std::chrono::steady_clock::now();
     auto runtime = std::chrono::duration_cast<std::chrono::duration<double>>(finish-start_time).count();
-    std::cout << "Runtime for sorted vector of " << num_elements << " elements: " << runtime << std::endl;
+    std::cout << "Runtime for sorted vector of " << num_elements << " elements: " << runtime << " seconds" << std::endl;
 }
 
 template <void (*sorting_func)(std::vector<int>&)>
@@ -31,7 +32,7 @@ void benchmark_random(int num_elements){
     sorting_func(test);
     auto finish = std::chrono::steady_clock::now();
     auto runtime = std::chrono::duration_cast<std::chrono::duration<double>>(finish-start).count();
-    std::cout << "Runtime for random vector of " << num_elements << " elements: " << runtime << std::endl;
+    std::cout << "Runtime for random vector of " << num_elements << " elements: " << runtime << " seconds" << std::endl;
 }
 
 template <void (*sorting_func)(std::vector<int>&)>
@@ -46,7 +47,7 @@ void benchmark_reverse_sort(const int num_elements){
     sorting_func(test);
     auto finish = std::chrono::steady_clock::now();
     auto runtime = std::chrono::duration_cast<std::chrono::duration<double>>(finish-start).count();
-    std::cout << "Runtime for reverse sorted vector of " << num_elements << " elements: " << runtime << std::endl;
+    std::cout << "Runtime for reverse sorted vector of " << num_elements << " elements: " << runtime << " seconds" << std::endl;
 }
 
 template <void (*sorting_func)(std::vector<int>&)>
@@ -66,7 +67,7 @@ void benchmark_partial_sort(int num_elements){
     sorting_func(test);
     auto finish = std::chrono::steady_clock::now();
     auto runtime = std::chrono::duration_cast<std::chrono::duration<double>>(finish-start).count();
-    std::cout << "Runtime for partially sorted vector of " << num_elements << " elements: " << runtime << std::endl;
+    std::cout << "Runtime for partially sorted vector of " << num_elements << " elements: " << runtime << " seconds" <<std::endl;
 }
 
 template <void (*sorting_func)(std::vector<int>&)>
@@ -84,6 +85,9 @@ int main(){
     std::cout << std::endl << "Merge Sort: " << std::endl;
     benchmark_all<merge_sort_wrap>(10000);
 
-    std::cout << std::endl << "Quick Sort: " << std:: endl;
-    benchmark_all<quick_sort_wrap>(10000);
+    std::cout << std::endl << "Quick Sort: " << std::endl;
+    benchmark_all<quick_sort>(10000);
+
+    std::cout << std::endl << "Parallel Insertion Sort: " << std::endl;
+    benchmark_all<parallel_insertion_sort>(10000);
 }

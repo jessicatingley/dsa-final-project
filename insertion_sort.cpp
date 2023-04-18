@@ -7,7 +7,7 @@
  * Function: insertion_sort
  * Description:
  *
- * Input: Reference to the vector to be sorted (int)
+ * Input: Reference to the vector to be sorted (std::vector<int>&)
  * Output: None (void)
  * Process: For the value at each index in the vector, the value before it is
  *          compared to the current value. If this value is less than the current
