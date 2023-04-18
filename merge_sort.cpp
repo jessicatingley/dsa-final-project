@@ -10,34 +10,34 @@
  *
  * Input: Reference to the vector to be sorted (int), low value, mid value, high value
  * Output: None (void)
- * Process: Creates an auxillary vector and copies data from the vector being sorted to this new one. Starting the process of merging the 2 halves of the vector: the left sub-vector goes from low to mid and the right sub-vector goes from mid+1 to high. i starts at low and j starts at mid+1. The left and right sub-vectors are merged using a loop to iterate from low to high. For each index, there are multiple comparisons being made: 
- *          The low is compared the the mid, and if it's greater, then the element at index j is added to the vector. 
- *          The elements in the right sub-vector are compared to the high and if it's greater, the element at index i is added to the vector.
- *          The elements at j and i are compared and if the element at j is less than the element at i, the element at j is added to the vector.
- *If none of the conditions are met, then the element at index i is added to the vector.
+ * Process:  Creates a temporary vector and has variables i and j to keep track of the first element in the left and right partitions. For each half, the elements at index i and j is compared and the lower of the 2 elements is added to the temp vector. This process continues as long as i does not reach the mid point and j does not reach the high point. After this is over, the leftover elements are copied to the temp vector from the left side, and then the right. Finally, the elements in the temp vector are copied back to the original vector.
  ------------------------------------------------------------------------------------*/
 void merge(std::vector<int>& vec, int low, int mid, int high){
-    std::vector<int> aux(vec.size());
 
-    std::memcpy(&aux[low], &vec[low], (high - low + 1) * sizeof(int));
-
-    int i = low;
-    int j = mid + 1;
-
-    for(int k = low; k <= high; k++){
-        if(i > mid){
-            vec[k] = aux[j++];
+    //create temp vector 
+    std::vector<int> temp(high - low + 1);
+    int i = low, j = mid + 1, k = 0;
+    
+    while (i <= mid && j <= high) {
+        if (vec[i] <= vec[j]) {
+            temp[k++] = vec[i++];
         }
-        else if(j > high){
-            vec[k] = aux[i++];
-        }
-        else if(aux[j] < aux[i]){
-            vec[k] = aux[j++];
-        }
-        else{
-            vec[k] = aux[i++];
+        else {
+            temp[k++] = vec[j++];
         }
     }
+    
+    //copy left over elements from left and right side
+    while (i <= mid) {
+        temp[k++] = vec[i++];
+    }
+    
+    while (j <= high) {
+        temp[k++] = vec[j++];
+    }
+    
+    //copy data back into vec
+    std::memcpy(&vec[low], &temp[0], temp.size() * sizeof(int));
 }
 
 /*------------------------------------------------------------------------------------
