@@ -18,6 +18,20 @@ void merge(std::vector<int>& vec, int low, int mid, int high){
     std::vector<int> temp(high - low + 1);
     int i = low, j = mid + 1, k = 0;
     
+    //left sub-array
+    std::cout << "Left sub-array: ";
+    for(int x = low; x <= mid; x++){
+        std::cout << std::to_string(vec[x]) << " ";
+    }
+    std::cout << std::endl;
+
+    //right sub-array
+    std::cout << "Right sub-array: ";
+    for(int x = mid+1; x <= high; x++){
+        std::cout << std::to_string(vec[x]) << " ";
+    }
+    std::cout << std::endl;
+
     while (i <= mid && j <= high) {
         if (vec[i] <= vec[j]) {
             temp[k++] = vec[i++];
@@ -36,6 +50,13 @@ void merge(std::vector<int>& vec, int low, int mid, int high){
         temp[k++] = vec[j++];
     }
     
+    //merged array
+    std::cout << "Merged array: ";
+    for(int x = 0; x < temp.size(); x++){
+        std::cout << std::to_string(temp[x]) << " ";
+    }
+    std::cout << std::endl << std::endl;
+
     //copy data back into vec
     std::memcpy(&vec[low], &temp[0], temp.size() * sizeof(int));
 }
@@ -63,4 +84,11 @@ void merge_sort(std::vector<int>& vec, int low, int high){
 
 void merge_sort_wrap(std::vector<int>& items){
     merge_sort(items, 0, items.size() - 1);
+    
+    //final array
+    std::cout << "Final array: ";
+    for(int i = 0; i < items.size(); i++){
+        std::cout << std::to_string(items[i]) << " ";
+    }
+    std::cout << std::endl;
 }
