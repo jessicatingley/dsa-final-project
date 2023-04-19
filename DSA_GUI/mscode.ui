@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mscode</class>
+ <widget class="QDialog" name="mscode">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>902</width>
+    <height>719</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>DSA Project: Merge Sort Algorithm Code</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>881</width>
+     <height>701</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>void merge(std::vector&lt;int&gt;&amp; vec, int low, int mid, int high){
+
+    //create temp vector 
+    std::vector&lt;int&gt; temp(high - low + 1);
+    int i = low, j = mid + 1, k = 0;
+    
+    while (i &lt;= mid &amp;&amp; j &lt;= high) {
+        if (vec[i] &lt;= vec[j]) {
+            temp[k++] = vec[i++];
+        }
+        else {
+            temp[k++] = vec[j++];
+        }
+    }
+    
+    //copy left over elements from left and right side
+    while (i &lt;= mid) {
+        temp[k++] = vec[i++];
+    }
+    
+    while (j &lt;= high) {
+        temp[k++] = vec[j++];
+    }
+    
+    //copy data back into vec
+    std::memcpy(&amp;vec[low], &amp;temp[0], temp.size() * sizeof(int));
+}
+void merge_sort(std::vector&lt;int&gt;&amp; vec, int low, int high){
+    if(high &lt;= low){
+        return;
+    }
+
+    int mid = low + (high - low) / 2;
+
+    merge_sort(vec, low, mid);
+    merge_sort(vec, mid + 1, high);
+    merge(vec, low, mid, high);
+
+}</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
