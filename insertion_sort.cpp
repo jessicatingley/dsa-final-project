@@ -22,10 +22,17 @@ void insertion_sort(std::vector<int>& items){
     for(auto curr_idx = 1; curr_idx < size; curr_idx++){
         auto compare_idx = curr_idx - 1;
         const auto curr_val = items[curr_idx];
+        std::cout << "Comparing " << items[compare_idx] << " to " << curr_val << std::endl;
         while(compare_idx >= 0 && items[compare_idx] > curr_val){
+            std::cout << "Swapping " << items[compare_idx + 1] << " and " << items[compare_idx] << std::endl;
             items[compare_idx + 1] = items[compare_idx];
             compare_idx -= 1;
         }
         items[compare_idx + 1] = curr_val;
+        std::cout << "New vector: ";
+        for(auto i : items){
+            std::cout << i << " ";
+        }
+        std::cout << std::endl;
     }
 }
