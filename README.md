@@ -61,6 +61,7 @@ File Management Process
 2. Download files and copy the files into the created folder on your Desktop (Only .cpp, .h, .ui)
 3. Open Qt Creator, and click "Open Project"
 4. Through your computer's file explorer, Go to Desktop, DSA, then click on the Project File called "DSA.pro"
+
 (If there is an error, revisit steps 2-4)
 5. The window will then build the project
 6. After the build process is finished click the green play bottom on the left corner of the screen, then the window will appear and you are able to enteract and see our visualizations of the sorting algorithms
