@@ -2,27 +2,27 @@
 Group members: Claudia Deverdits, Jessica Tingley, Samuel Calise
 
 # Summary
-This repository holds the source code for our final project, the implementation of insertion sort, quick sort, merge sort, and parallel insertion sort. We have also provided source files to benchmark runtimes, with instructions included in the “Compilation Instructions” section. Our benchmarking tests each algorithm with vectors that are sorted, reverse sorted, partially sorted, and random, recording their runtimes so you can see the differences between each algorithm.
+This repository holds the source code for our final project, the implementation of insertion sort, quick sort, merge sort, and parallel insertion sort. We have also provided source files to benchmark runtimes, with instructions included in the “Compilation Instructions” section. Our benchmarking tests each algorithm with arrays that are sorted, reverse sorted, partially sorted, and random, recording their runtimes so you can see the differences between each algorithm.
 
 # Algorithms
 
 ### Insertion Sort
-Description here
+Insertion Sort is a sorting algorithm that works by sorting one element at a time. While iterating over an input array, for each element, it finds the correct position to insert it into. This algorithm starts with the first element considered to be sorted and compares the second element with the first, inserting it either before or after, depending on if it is smaller or larger. This process is repeated for the next elements all the way until all elements have been considered. With a time complexity of O(n^2) in the worst-case scenario, this algorithm is suitable for small or partially sorted arrays but can be inefficient for larger unsorted arrays.
 
 ### Merge Sort
-Description here
+Merge Sort is another sorting algorithm that makes use of the divide-and-conquer strategy. This algorithm divides the array into 2 halves recursively until each has a size of 1; each partition is then merged, being sorted in the process. The merging process works by comparing the first elements of 2 sorted sub-arrays and choosing the smaller element to be added to the merged array, with this continuing until all elements have been merged. Merge sort has a time complexity of O(n log n) making it a good choice for large sets of data. Another great feature of merge sort is its ability for stable sorting to preserve the order of elements of the same value.
 
 ### Quick Sort
-Description here
+Quick Sort is a sorting algorithm that uses a divide-and-conquer technique to sort an array. A “pivot” element is selected and the array is partitioned into 2 sub-arrays, with elements less than the pivot going in one sub-array and elements greater than the pivot going in the other array. This process repeats recursively on each sub-array until the whole array is considered sorted. Quick sort has a time complexity of O(n log n) in average case and O(n^2) in the worst case. Even with this worst case time complexity, the average case tends to perform better than other sorting algorithms, making it a popular choice.
 
 ### Parallel Insertion Sort
-Description here
+Parallel Insertion Sort is a variation on the insertion sort algorithm that uses parallel processing to sort an array. The input array is divided into smaller array which are then sorted independently by separate threads running in parallel. These sorted sub-arrays are then merged together for the final array. This algorithm has a time complexity of O(n^2/p + n log p) where n is the number of elements and p is the number of processors used, making it useful for sorting large datasets.
 
 # Inputs
-In order to run our program, you must enter a command line argument for the number of elements you want to fill the vectors up with. Please read the “Runtime Instructions” for more information on this.
+In order to run our program, you must enter a command line argument for the number of elements you want to fill the arrays up with. Please read the “Runtime Instructions” for more information on this.
 
 # Outputs
-After running the program, runtimes of each algorithm sorting various vectors will be outputted. An example of what to expect would look like the below image:
+After running the program, runtimes of each algorithm sorting various arrays will be outputted. An example of what to expect would look like the below image:
 
 <img src = "" />
 
@@ -48,7 +48,7 @@ g++ benchmark.cpp merge_sort.cpp insertion_sort.cpp parallel_insertion_sort.cpp 
 ```
 
 # Runtime Instructions
-To run the code, enter the following line into your terminal after compiling, where \<num_elements> is replaced by an integer signifying how many elements you would like to populate the vectors with. 
+To run the code, enter the following line into your terminal after compiling, where \<num_elements> is replaced by an integer signifying how many elements you would like to populate the arrays with. 
 
 ```
 ./prog <num_elements>
