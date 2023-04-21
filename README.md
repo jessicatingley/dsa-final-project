@@ -20,7 +20,7 @@ The source code is written in C++ and can be compiled in an IDE using the “g++
 Once these files are in the same folder, you can access the folder using cd folder_name. You can use the following line in the terminal to compile the program:
 
 ```
-g++ benchmark.cpp merge_sort.cpp insertion_sort.cpp quick_sort.cpp -o prog
+g++ benchmark.cpp merge_sort.cpp insertion_sort.cpp parallel_insertion_sort.cpp quick_sort.cpp -o prog
 ```
 
 # Runtime Instructions
