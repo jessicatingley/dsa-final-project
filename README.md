@@ -5,7 +5,9 @@ By Claudia Deverdits, Jessica Tingley, Samuel Calise
 This repository holds the source code for our final project, the implementation of insertion sort, quick sort, merge sort, and parallel insertion sort. 
 
 # Compilation Instructions
-The source code is written in C++ and can be compiled in an IDE using the “g++” compiler. To run this program and benchmark all algorithms, you will need the following files:
+The source code is written in C++ and can be compiled in an IDE using the “g++” compiler. To run this program with our graphical user interface, continue to the section labeled "Our Graphical User Interface" for instructions on how to install the required software. 
+
+To run this program and benchmark all algorithms, you will need the following files:
 
 * benchmark.cpp
 * merge_sort.cpp
