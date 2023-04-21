@@ -1,8 +1,30 @@
 # URI CSC212 Final Project: Sorting Algorithms
-By Claudia Deverdits, Jessica Tingley, Samuel Calise
+Group members: Claudia Deverdits, Jessica Tingley, Samuel Calise
 
 # Summary
-This repository holds the source code for our final project, the implementation of insertion sort, quick sort, merge sort, and parallel insertion sort. 
+This repository holds the source code for our final project, the implementation of insertion sort, quick sort, merge sort, and parallel insertion sort. We have also provided source files to benchmark runtimes, with instructions included in the “Compilation Instructions” section. Our benchmarking tests each algorithm with vectors that are sorted, reverse sorted, partially sorted, and random, recording their runtimes so you can see the differences between each algorithm.
+
+# Algorithms
+
+### Insertion Sort
+Description here
+
+### Merge Sort
+Description here
+
+### Quick Sort
+Description here
+
+### Parallel Insertion Sort
+Description here
+
+# Inputs
+In order to run our program, you must enter a command line argument for the number of elements you want to fill the vectors up with. Please read the “Runtime Instructions” for more information on this.
+
+# Outputs
+After running the program, runtimes of each algorithm sorting various vectors will be outputted. An example of what to expect would look like the below image:
+
+<img src = "" />
 
 # Compilation Instructions
 The source code is written in C++ and can be compiled in an IDE using the “g++” compiler. To run this program with our graphical user interface, continue to the section labeled "Our Graphical User Interface" for instructions on how to install the required software. 
@@ -26,10 +48,10 @@ g++ benchmark.cpp merge_sort.cpp insertion_sort.cpp parallel_insertion_sort.cpp 
 ```
 
 # Runtime Instructions
-To run the code, enter the following line into your terminal after compiling: 
+To run the code, enter the following line into your terminal after compiling, where \<num_elements> is replaced by an integer signifying how many elements you would like to populate the vectors with. 
 
 ```
-./prog
+./prog <num_elements>
 ```
 
 # Our Graphical User Interface
