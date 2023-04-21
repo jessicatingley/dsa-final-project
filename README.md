@@ -24,7 +24,7 @@ In order to run our program, you must enter a command line argument for the numb
 # Outputs
 After running the program, runtimes of each algorithm sorting various arrays will be outputted. An example of what to expect would look like the below image:
 
-<img src = "" />
+<img src="https://i.ibb.co/dMXR3K7/Screenshot-2023-04-21-at-7-41-29-PM.png" alt="Screenshot-2023-04-21-at-7-41-29-PM" border="0">
 
 # Compilation Instructions
 The source code is written in C++ and can be compiled in an IDE using the “g++” compiler. To run this program with our graphical user interface, continue to the section labeled "Our Graphical User Interface" for instructions on how to install the required software. 
@@ -44,7 +44,7 @@ To run this program and benchmark all algorithms, you will need the following fi
 Once these files are in the same folder, you can access the folder using cd folder_name. You can use the following line in the terminal to compile the program:
 
 ```
-g++ benchmark.cpp merge_sort.cpp insertion_sort.cpp parallel_insertion_sort.cpp quick_sort.cpp -o prog
+g++ benchmark.cpp merge_sort.cpp insertion_sort.cpp parallel_insertion_sort.cpp quick_sort.cpp -lpthread -o prog
 ```
 
 # Runtime Instructions
