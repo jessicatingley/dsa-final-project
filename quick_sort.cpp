@@ -17,7 +17,7 @@
  *          be swapped in 'num_list.' The for loop will be iterating at the starting 
  *          position to the end position at every recursive call until the list is sorted
  *          in ascending order. When the condition, if the current element in num_list is 
- *          less thanthe 'current_pivot_value,' the two elements swap position, and the 
+ *          less than the 'current_pivot_value,' the two elements swap position, and the
  *          pivot index increments to the next element. At the end of the for loop, the 
  *          value at the 'pivoting_index' will be swapped with the end position value in 
  *          the list showing the sub-array for either the right or left list partition is 
