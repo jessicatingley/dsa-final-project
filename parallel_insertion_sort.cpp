@@ -2,6 +2,7 @@
 #include <thread>
 #include <vector>
 #include <cmath>
+#include <algorithm>
 #include <cassert>
 #include "parallel_insertion_sort.h"
 #include "insertion_sort.h"
@@ -69,7 +70,7 @@ std::vector<int> merge_sorted(std::vector<std::vector<int>>& sorted_vecs){
             sorted_vecs.erase(sorted_vecs.begin() + index, sorted_vecs.begin() + index + 1);
         max = 0;
     }
-    reverse(final_vec.begin(), final_vec.end());
+    std::reverse(final_vec.begin(), final_vec.end());
     return final_vec;
 }
 

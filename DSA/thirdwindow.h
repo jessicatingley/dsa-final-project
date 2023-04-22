@@ -18,8 +18,13 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_exitButton_3_clicked();
+
 private:
     Ui::thirdwindow *ui;
+
+    void insertion_sort(std::vector<int>& items);
+
 };
 
 #endif // THIRDWINDOW_H

@@ -6,6 +6,7 @@ QScode::QScode(QWidget *parent) :
     ui(new Ui::QScode)
 {
     ui->setupUi(this);
+    setFixedSize(536,849);
 }
 
 QScode::~QScode()

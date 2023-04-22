@@ -60,7 +60,7 @@ int secondwindow::list_partition(std::vector<int>& num_list, int start_position,
 
 
             for (int i = 0; i < int(num_list.size()); i++)
-                beforeSwap += QString::number(num_list[i]) + " ";
+                afterSwap += QString::number(num_list[i]) + " ";
             ui -> listWidget -> addItem(afterSwap);
 
             //increment to the next index after swapping

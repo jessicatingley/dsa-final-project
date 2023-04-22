@@ -78,16 +78,17 @@ void benchmark_all(int num_elements) {
     benchmark_partial_sort<sorting_func>(num_elements);
 }
 
-int main(){
+int main(int argc, char* argv[]){
+    int num_elements = std::stoi(argv[1]);
     std::cout << "Insertion Sort:\n";
-    benchmark_all<insertion_sort>(10000);
+    benchmark_all<insertion_sort>(num_elements);
 
     std::cout << std::endl << "Merge Sort: " << std::endl;
-    benchmark_all<merge_sort_wrap>(10000);
+    benchmark_all<merge_sort_wrap>(num_elements);
 
     std::cout << std::endl << "Quick Sort: " << std::endl;
-    benchmark_all<quick_sort>(10000);
+    benchmark_all<quick_sort>(num_elements);
 
     std::cout << std::endl << "Parallel Insertion Sort: " << std::endl;
-    benchmark_all<parallel_insertion_sort>(10000);
+    benchmark_all<parallel_insertion_sort>(num_elements);
 }

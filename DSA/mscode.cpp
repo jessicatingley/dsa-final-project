@@ -6,6 +6,7 @@ mscode::mscode(QWidget *parent) :
     ui(new Ui::mscode)
 {
     ui->setupUi(this);
+    setFixedSize(510,771);
 }
 
 mscode::~mscode()

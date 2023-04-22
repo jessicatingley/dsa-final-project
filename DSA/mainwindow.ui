@@ -10,8 +10,11 @@
     <height>300</height>
    </rect>
   </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::NoContextMenu</enum>
+  </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>DSA Project: Sorting Algorithms</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="quick_sort_button">
@@ -141,7 +144,7 @@
    </property>
    <widget class="QMenu" name="menuDSA_Project_Sorting_Algorithms">
     <property name="title">
-     <string>DSA Project: Sorting Algorithms</string>
+     <string> </string>
     </property>
    </widget>
    <addaction name="menuDSA_Project_Sorting_Algorithms"/>

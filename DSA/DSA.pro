@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     fourthwindow.cpp \
+    is_code.cpp \
     main.cpp \
     mainwindow.cpp \
     mscode.cpp \
@@ -19,6 +20,7 @@ SOURCES += \
 
 HEADERS += \
     fourthwindow.h \
+    is_code.h \
     mainwindow.h \
     mscode.h \
     qscode.h \
@@ -27,6 +29,7 @@ HEADERS += \
 
 FORMS += \
     fourthwindow.ui \
+    is_code.ui \
     mainwindow.ui \
     mscode.ui \
     qscode.ui \

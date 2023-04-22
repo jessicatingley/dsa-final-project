@@ -22,6 +22,9 @@ private slots:
 
 private:
     Ui::fourthwindow *ui;
+
+    void merge(std::vector<int>& vec, int low, int mid, int high);
+    void merge_sort(std::vector<int>& vec, int low, int high);
 };
 
 #endif // FOURTHWINDOW_H
