@@ -5,6 +5,7 @@
 #include "quick_sort.h"
 #include "merge_sort.h"
 #include "parallel_insertion_sort.h"
+#include "parallel_merge_sort.h"
 
 template <void (*sorting_func)(std::vector<int>&)>
 void test_sort_one_element() {
@@ -78,6 +79,7 @@ int main(){
     test_all<merge_sort_wrap>();
     test_all<quick_sort>();
     test_all<parallel_insertion_sort>();
+    test_all<parallel_merge_sort>();
     std::cout << "Passed All" << std::endl;
 }
 

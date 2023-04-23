@@ -7,7 +7,7 @@
 #include "parallel_insertion_sort.h"
 #include "insertion_sort.h"
 
-int num_threads = std::thread::hardware_concurrency();
+const int num_threads = std::thread::hardware_concurrency();
 
 /*------------------------------------------------------------------------------------
  * Function: separate_vector

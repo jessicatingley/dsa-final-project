@@ -5,6 +5,7 @@
 #include "merge_sort.h"
 #include "quick_sort.h"
 #include "parallel_insertion_sort.h"
+#include "parallel_merge_sort.h"
 
 template <void (*sorting_func)(std::vector<int>&)>
 void benchmark_sorted(const int num_elements){
@@ -78,6 +79,10 @@ void benchmark_all(int num_elements) {
     benchmark_partial_sort<sorting_func>(num_elements);
 }
 
+void sort_wrap(std::vector<int>& items){
+    std::sort(items.begin(), items.end());
+}
+
 int main(int argc, char* argv[]){
     int num_elements = std::stoi(argv[1]);
     std::cout << "Insertion Sort:\n";
@@ -91,4 +96,10 @@ int main(int argc, char* argv[]){
 
     std::cout << std::endl << "Parallel Insertion Sort: " << std::endl;
     benchmark_all<parallel_insertion_sort>(num_elements);
+
+    std::cout << std::endl << "Recursive Parallel Merge Sort: " << std::endl;
+    benchmark_all<parallel_merge_sort>(num_elements);
+
+    std::cout << std::endl << "std::sort() : " << std::endl;
+    benchmark_all<sort_wrap>(num_elements);
 }
