@@ -2,6 +2,7 @@
 #include <vector>
 #include <cstring>
 #include "merge_sort.h"
+#include <cassert>
 
 
 /*------------------------------------------------------------------------------------
@@ -20,7 +21,11 @@
  *           to the original vector.
  ------------------------------------------------------------------------------------*/
 void merge(std::vector<int>& vec, int low, int mid, int high){
-
+    assert(!vec.empty());
+    assert(low >= 0 && low < vec.size());
+    assert(high >= 0 && high < vec.size());
+    assert(mid >= 0 && mid < vec.size());
+    assert(mid >= low && high >= mid);
     //create temp vector 
     std::vector<int> temp(high - low + 1);
     int i = low, j = mid + 1, k = 0;
@@ -59,6 +64,9 @@ void merge(std::vector<int>& vec, int low, int mid, int high){
  *          function.
  ------------------------------------------------------------------------------------*/
 void merge_sort(std::vector<int>& vec, int low, int high){
+    assert(!vec.empty());
+    assert(low >= 0 && low < vec.size());
+    assert(high >= 0 && high < vec.size());
     if(high <= low){
         return;
     }
@@ -72,5 +80,8 @@ void merge_sort(std::vector<int>& vec, int low, int high){
 }
 
 void merge_sort_wrap(std::vector<int>& items){
+    if(items.size() == 0)
+        return;
+
     merge_sort(items, 0, items.size() - 1);
 }

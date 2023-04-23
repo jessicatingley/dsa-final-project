@@ -26,6 +26,6 @@ void parallel_merge_sort_r(std::vector<int>& items, int low, int high){
     merge(items, low, midpoint, high);
 }
 
-void parallel_merge_sort(std::vector<int>& items){
+void parallel_merge_sort_wrap(std::vector<int>& items){
     parallel_merge_sort_r(items, 0, items.size() - 1);
 }
