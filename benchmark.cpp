@@ -4,7 +4,7 @@
 #include "insertion_sort.h"
 #include "merge_sort.h"
 #include "quick_sort.h"
-#include "parallel_sorts.h"
+#include "parallel_insertion_sort.h"
 #include "parallel_merge_sort.h"
 
 template <void (*sorting_func)(std::vector<int>&)>
@@ -96,12 +96,6 @@ int main(int argc, char* argv[]){
 
     std::cout << std::endl << "Parallel Insertion Sort: " << std::endl;
     benchmark_all<parallel_insertion_sort>(num_elements);
-
-    std::cout << std::endl << "Parallel Merge Sort: " << std::endl;
-    benchmark_all<parallel_merge_sort>(num_elements);
-
-    std::cout << std::endl << "Parallel Quick Sort: " << std::endl;
-    benchmark_all<parallel_quick_sort>(num_elements);
 
     std::cout << std::endl << "Recursive Parallel Merge Sort: " << std::endl;
     benchmark_all<parallel_merge_sort_wrap>(num_elements);

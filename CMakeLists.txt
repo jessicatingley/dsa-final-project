@@ -10,8 +10,8 @@ add_executable(dsa_final_project
 
 add_executable(tests
         unit_tests.cpp insertion_sort.cpp merge_sort.cpp quick_sort.cpp
-        parallel_insertion_sort.cpp parallel_merge_sort.cpp split_and_merge.cpp parallel_sorts.cpp)
+        parallel_insertion_sort.cpp parallel_merge_sort.cpp)
 
 add_executable(benchmarking
         benchmark.cpp insertion_sort.cpp merge_sort.cpp quick_sort.cpp
-        parallel_insertion_sort.cpp parallel_merge_sort.cpp split_and_merge.cpp parallel_sorts.cpp)
+        parallel_insertion_sort.cpp parallel_merge_sort.cpp)

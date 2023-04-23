@@ -21,11 +21,6 @@
  *           to the original vector.
  ------------------------------------------------------------------------------------*/
 void merge(std::vector<int>& vec, int low, int mid, int high){
-    assert(!vec.empty());
-    assert(low >= 0 && low < vec.size());
-    assert(high >= 0 && high < vec.size());
-    assert(mid >= 0 && mid < vec.size());
-    assert(mid >= low && high >= mid);
     //create temp vector 
     std::vector<int> temp(high - low + 1);
     int i = low, j = mid + 1, k = 0;
@@ -64,9 +59,6 @@ void merge(std::vector<int>& vec, int low, int mid, int high){
  *          function.
  ------------------------------------------------------------------------------------*/
 void merge_sort(std::vector<int>& vec, int low, int high){
-    assert(!vec.empty());
-    assert(low >= 0 && low < vec.size());
-    assert(high >= 0 && high < vec.size());
     if(high <= low){
         return;
     }
