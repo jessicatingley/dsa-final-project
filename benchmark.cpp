@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <chrono>
+#include <algorithm>
 #include "insertion_sort.h"
 #include "merge_sort.h"
 #include "quick_sort.h"

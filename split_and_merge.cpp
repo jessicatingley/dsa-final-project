@@ -2,6 +2,7 @@
 #include <vector>
 #include <thread>
 #include <cmath>
+#include <algorithm>
 #include "split_and_merge.h"
 const int num_threads = std::thread::hardware_concurrency();
 

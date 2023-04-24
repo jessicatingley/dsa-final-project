@@ -1,4 +1,4 @@
-# URI CSC212 Final Project: Sorting Algorithms
+ # URI CSC212 Final Project: Sorting Algorithms
 Group members: Claudia Deverdits, Jessica Tingley, Samuel Calise
 
 # Summary
@@ -24,7 +24,7 @@ In order to run our program, you must enter a command line argument for the numb
 # Outputs
 After running the program, runtimes of each algorithm sorting various arrays will be outputted. An example of what to expect would look like the below image:
 
-<img src="https://i.ibb.co/dMXR3K7/Screenshot-2023-04-21-at-7-41-29-PM.png" alt="Screenshot-2023-04-21-at-7-41-29-PM" border="0">
+<img src="https://i.ibb.co/52HW6QN/Screenshot-2023-04-24-at-1-59-37-AM.png" alt="Screenshot-2023-04-24-at-1-59-37-AM" border="0">
 
 # Compilation Instructions
 The source code is written in C++ and can be compiled in an IDE using the “g++” compiler. To run this program with our graphical user interface, continue to the section labeled "Our Graphical User Interface" for instructions on how to install the required software. 
@@ -32,19 +32,23 @@ The source code is written in C++ and can be compiled in an IDE using the “g++
 To run this program and benchmark all algorithms, you will need the following files:
 
 * benchmark.cpp
-* merge_sort.cpp
-* merge_sort.h
-* quick_sort.cpp
-* quick_sort.h
 * insertion_sort.cpp
 * insertion_sort.h
-* parallel_insertion_sort.cpp
-* parallel_insertion_sort.h
+* merge_sort.cpp
+* merge_sort.h
+* parallel_merge_sort.cpp
+* parallel_merge_sort.h
+* parallel_sorts.cpp
+* parallel_sorts.h
+* quick_sort.cpp
+* quick_sort.h
+* split_and_merge.cpp
+* split_and_merge.h
 
 Once these files are in the same folder, you can access the folder using cd folder_name. You can use the following line in the terminal to compile the program:
 
 ```
-g++ benchmark.cpp merge_sort.cpp insertion_sort.cpp parallel_insertion_sort.cpp quick_sort.cpp -lpthread -o prog
+g++ benchmark.cpp insertion_sort.cpp merge_sort.cpp parallel_merge_sort.cpp parallel_sorts.cpp quick_sort.cpp split_and_merge.cpp -lpthread -o prog
 ```
 
 # Runtime Instructions
