@@ -12,7 +12,8 @@
  *
  * Input: Reference to the vector to be sorted (vector<int>&)
  * Output: None (void)
- * Process:
+ * Process: Makes recursive calls on different threads until base case is hit.
+ *          Functions nearly identically to regular merge sort.
  ------------------------------------------------------------------------------------*/
 void parallel_merge_sort_r(std::vector<int>& items, int low, int high){
     int midpoint = (low + high) / 2;
