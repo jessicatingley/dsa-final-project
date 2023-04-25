@@ -19,7 +19,7 @@ Quick Sort is a sorting algorithm that uses a divide-and-conquer technique to so
 Parallel Insertion and Merge Sort are variations on the insertion and merge sort algorithms that use parallel processing to sort an array. The input array is divided into smaller array which are then sorted independently by separate threads running in parallel. These sorted sub-arrays are then merged together for the final array. This implementation of insertion sort has a time complexity of O((N/P)^2 + PN) in the worst case and O(PN) in the best case where n is the number of elements and p is the number of processors used. This implementation of merge sort has a time complexity of O((N/P)log(N/P) + PN) in all cases. These algorithms become useful for sorting large datasets.
 
 ### Recursive Parallel Merge Sort
-This implementation of merge sort functions nearly identically to merge sort. The base case was made larger than in normal merge sort and rather than making two recursive calls sequentially, they are made in parallel. This function has a runtime of O(N + N/Plog(N/P)) in all scenarios.
+This implementation of merge sort functions nearly identically to merge sort. The base case was made larger than in normal merge sort to ensure a shallow recursive call chain and rather than making two recursive calls sequentially, they are made in parallel. This function has a runtime of O(N + N/Plog(N/P)) in all scenarios.
 
 # Inputs
 In order to run our program, you must enter a command line argument for the number of elements you want to fill the arrays up with. Please read the “Runtime Instructions” for more information on this.
