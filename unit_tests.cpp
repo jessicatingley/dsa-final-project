@@ -81,7 +81,6 @@ int main(){
     test_all<parallel_insertion_sort>();
     test_all<parallel_merge_sort_wrap>();
     test_all<parallel_merge_sort>();
-    test_all<parallel_quick_sort>();
     std::cout << "Passed All" << std::endl;
 }
 

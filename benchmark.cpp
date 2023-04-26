@@ -101,7 +101,6 @@ int main(int argc, char* argv[]){
     std::cout << std::endl << "Parallel Merge Sort: " << std::endl;
     benchmark_all<parallel_merge_sort>(num_elements);
 
-
     std::cout << std::endl << "Recursive Parallel Merge Sort: " << std::endl;
     benchmark_all<parallel_merge_sort_wrap>(num_elements);
 
