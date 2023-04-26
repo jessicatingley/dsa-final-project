@@ -15,8 +15,11 @@ Merge Sort is another sorting algorithm that makes use of the divide-and-conquer
 ### Quick Sort
 Quick Sort is a sorting algorithm that uses a divide-and-conquer technique to sort an array. A “pivot” element is selected and the array is partitioned into 2 sub-arrays, with elements less than the pivot going in one sub-array and elements greater than the pivot going in the other array. This process repeats recursively on each sub-array until the whole array is considered sorted. Quick sort has a time complexity of O(n log n) in average case and O(n^2) in the worst case. Even with this worst case time complexity, the average case tends to perform better than other sorting algorithms, making it a popular choice.
 
-### Parallel Insertion Sort
-Parallel Insertion Sort is a variation on the insertion sort algorithm that uses parallel processing to sort an array. The input array is divided into smaller array which are then sorted independently by separate threads running in parallel. These sorted sub-arrays are then merged together for the final array. This algorithm has a time complexity of O(n^2/p + n log p) where n is the number of elements and p is the number of processors used, making it useful for sorting large datasets.
+### Parallel Insertion and Merge Sort
+Parallel Insertion and Merge Sort are variations on the insertion and merge sort algorithms that use parallel processing to sort an array. The input array is divided into smaller array which are then sorted independently by separate threads running in parallel. These sorted sub-arrays are then merged together for the final array. This implementation of insertion sort has a time complexity of O((N/P)^2 + PN) in the worst case and O(PN) in the best case where n is the number of elements and p is the number of processors used. This implementation of merge sort has a time complexity of O((N/P)log(N/P) + PN) in all cases. These algorithms become useful for sorting large datasets.
+
+### Recursive Parallel Merge Sort
+This implementation of merge sort functions nearly identically to merge sort. The base case was made larger than in normal merge sort to ensure a shallow recursive call chain and rather than making two recursive calls sequentially, they are made in parallel. This function has a runtime of O(N + N/Plog(N/P)) in all scenarios.
 
 # Inputs
 In order to run our program, you must enter a command line argument for the number of elements you want to fill the arrays up with. Please read the “Runtime Instructions” for more information on this.
